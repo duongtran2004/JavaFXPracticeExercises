@@ -23,7 +23,7 @@ public class ButtonApplication extends Application { //every JavaFX Application 
         //we need to add this scene to stage
         primaryStage.setScene(scene);
 
-        //Event Handiling
+        //Event Handling
         // Set an action when the button is clicked.
         button1.setOnAction(event -> {
             // You can choose to either display an alert:
