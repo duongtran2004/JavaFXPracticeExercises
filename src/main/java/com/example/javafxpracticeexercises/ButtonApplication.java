@@ -3,7 +3,9 @@ package com.example.javafxpracticeexercises;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -13,15 +15,40 @@ public class ButtonApplication extends Application { //every JavaFX Application 
         //add a control (control in this case is a button)
         Button button1 = new Button("Click Me");
         //define the layout (why root?)
-        HBox root = new HBox();
+        HBox rootLayout = new HBox();
         //we need to add our control
-        root.getChildren().add(button1);
+        rootLayout.getChildren().add(button1);
         //add this layout to the scene
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(rootLayout);
         //we need to add this scene to stage
         primaryStage.setScene(scene);
+
+        //Event Handiling
+        // Set an action when the button is clicked.
+        button1.setOnAction(event -> {
+            // You can choose to either display an alert:
+            showAlert("Button Clicked", "You clicked the button!");
+
+            // OR change the button text:
+            // actionButton.setText("Clicked!");
+        });
+
+
+        // Set the title of the window.
+        primaryStage.setTitle("Button Action App");
+
+        // Show the window.
         primaryStage.show();
-
-
     }
-}
+
+
+    // Helper method to show an alert dialog.
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+    }
+
