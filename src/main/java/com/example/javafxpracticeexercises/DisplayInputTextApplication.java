@@ -49,8 +49,14 @@ public class DisplayInputTextApplication extends Application {
         //Event Handling
         // Set an action when the button is clicked.
         submitButton.setOnAction(event -> {
+            // Capture the user-entered text
+            String enteredFirstName = firstName.getText();
+            String enteredLastName = lastName.getText();
+            // Construct the message
+            String message = "You have entered:\nFirst Name: " + enteredFirstName + "\nLast Name: " + enteredLastName;
+
             // You can choose to either display an alert:
-            showAlert("Button Clicked", "You have submitted your information !");
+            showAlert("User Entered Information", message);
 
         });
         // create a Tile pane
